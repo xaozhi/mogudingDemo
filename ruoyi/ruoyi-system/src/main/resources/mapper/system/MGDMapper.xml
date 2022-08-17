@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.MGDMapper">
+
+
+    <select id="findAll" resultType="com.ruoyi.system.vo.TWeeklyVO">
+        SELECT te.type,te.`write` FROM d_moguding.t_weekly as tl ,d_moguding.t_write as te
+        where tl.id = te.uid
+        and te.type = #{typeId}
+        order by rand() limit 1 ;
+    </select>
+</mapper>
